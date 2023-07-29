@@ -1,7 +1,7 @@
-import TableNotes from "./TableNotes";
-import { useAppSelector } from "../../../hooks/useAppSelector";
-import Table from "../Table";
-import TableNotesItem from "./TableNotesItem";
+import { useAppSelector } from "../../../../hooks/useAppSelector";
+import TableNotesItem from "../TableNotesItem";
+import Table from "../../Table";
+import TableNotes from "../TableNotes";
 
 
 
@@ -14,6 +14,7 @@ const TableNotesActive: React.FC = () => {
                 {notes.map((note) =>(
                     <TableNotesItem
                     key={note.id}
+                    isArchive= {false}
                     {...note}
                     />
                 ))}

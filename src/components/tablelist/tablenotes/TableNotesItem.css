@@ -30,6 +30,10 @@ td .icon-title {
     color: #000000;
 }
 
+.icon i{
+    cursor: pointer;
+}
+
 .note-table tbody tr {
     background-color: #f3f3f37b;
     backdrop-filter: blur(10px);

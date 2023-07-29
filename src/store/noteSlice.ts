@@ -48,16 +48,24 @@ const noteSlice = createSlice({
             state.list = state.list.filter(note => note.id !== action.payload);
         },
         archiveNote(state, action:PayloadAction<string>) {
-            let archiveNote = state.list.find(note => note.id == action.payload)
-            if(archiveNote){
-                state.listArchive.push(archiveNote);
+            let toArchiveNote = state.list.find(note => note.id === action.payload)
+            if(toArchiveNote){
+                state.listArchive.push(toArchiveNote);
             }
             state.list = state.list.filter(note => note.id !== action.payload);
+
+        },
+        unArchiveNote(state, action:PayloadAction<string>) {
+            let toActiveNote = state.listArchive.find(note => note.id === action.payload)
+            if(toActiveNote){
+                state.list.push(toActiveNote);
+            }
+            state.listArchive = state.listArchive.filter(note => note.id !== action.payload);
 
         }
     },
 });
 
-export const { addNote , removeNote, archiveNote} = noteSlice.actions;
+export const { addNote , removeNote, archiveNote, unArchiveNote} = noteSlice.actions;
 
 export default noteSlice.reducer;

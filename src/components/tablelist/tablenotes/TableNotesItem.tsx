@@ -1,18 +1,19 @@
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { removeNote, archiveNote } from '../../../store/noteSlice';
 import './TableNotesItem.css'
+import { ActiveItemIcons, ArchiveItemIcons } from './TableNotesItemIcons';
 
 interface TableNotesItemProps{
-    id:string
+    isArchive: boolean,
+    id:string,
     title: string,
     created: string,
     category: string,
     content: string,
 }
 
-const TableNotesItem: React.FC<TableNotesItemProps> = ({id, title, created, category, content}) => {
-    let datesContent = content.match(/\d{2}([\/.-])\d{2}\1\d{4}/g)?.join(',');
-    let dispatch = useAppDispatch();
+const TableNotesItem: React.FC<TableNotesItemProps> = ({isArchive, id, title, created, category, content}) => {
+    let datesContent = content.match(/\d{2}([.-])\d{2}\1\d{4}/g)?.join(',');
 
     return(
         <tr>
@@ -30,15 +31,11 @@ const TableNotesItem: React.FC<TableNotesItemProps> = ({id, title, created, cate
             <td>{datesContent}</td>
 
             <td className="icons">
-                <a href="#" className="icon"><i className="fa-solid fa-pen-to-square"></i></a>
+                
+                {!isArchive && <ActiveItemIcons id = {id}/>}
 
-                <div className="icon" onClick={() => dispatch(archiveNote(id))}>
-                    <i className="fa-solid fa-folder-plus"></i>
-                </div>
+                {isArchive && <ArchiveItemIcons id = {id}/>}
 
-                <div className="icon" onClick={() => dispatch(removeNote(id))}>
-                    <i className="fa-solid fa-trash"></i>
-                </div>
             </td>
 
         </tr>

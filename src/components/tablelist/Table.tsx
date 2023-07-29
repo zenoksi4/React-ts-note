@@ -1,5 +1,4 @@
 import './Table.css'
-import TableNotesActive from './tablenotes/TableNotesActive';
 
 interface TableProps{
     children?: React.ReactNode
