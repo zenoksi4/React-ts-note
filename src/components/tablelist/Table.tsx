@@ -1,13 +1,15 @@
 import './Table.css'
 import TableNotesActive from './tablenotes/TableNotesActive';
 
+interface TableProps{
+    children?: React.ReactNode
+}
 
-const Table: React.FC = () => {
+const Table: React.FC<TableProps> = ({children}) => {
 
     return(
         <table className='note-table'>
-
-            <TableNotesActive></TableNotesActive>
+            {children}
         </table>
     );
 }

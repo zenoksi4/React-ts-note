@@ -1,8 +1,8 @@
-interface TableNotes{
+interface TableNotesProps{
     children?: React.ReactNode
 }
 
-const TableNotes: React.FC<TableNotes> = ({children}) => {
+const TableNotes: React.FC<TableNotesProps> = ({children}) => {
 
     return(
         <>

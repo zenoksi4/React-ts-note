@@ -1,0 +1,45 @@
+.note-title {
+    display: flex;
+    align-items: center;
+
+}
+
+td .icon-title {
+    padding: 10px;
+    margin: 10px;
+    color: #ffffff;
+    background-color: #ffffff24;
+    border-radius: 100px;
+}
+
+.text-ellipsis {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.icon {
+    padding: 10px;
+    color: #000000;
+}
+
+.note-table tbody tr {
+    background-color: #f3f3f37b;
+    backdrop-filter: blur(10px);
+    color: rgb(0, 0, 0);
+}
+.note-table tr {
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.note-table td, .note-table th {
+    padding: 12px 25px;
+}

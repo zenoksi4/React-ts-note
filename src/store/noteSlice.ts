@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 type Note = {
     id: string;
     title:string;
+    created:string;
     category:string;
     content:string;
 }
@@ -12,7 +13,14 @@ type NotesState = {
 }
 
 const initialState: NotesState = {
-    list: [],
+    list: [ {              
+        id: Math.random().toString(),
+        title: 'note1',
+        created: new Date().toLocaleDateString('uk'),
+        category: 'category1',
+        content: 'notes1 03.09.2022,02.09.2022'
+    },
+],
 }
 
 type addNotesAction = {
@@ -29,6 +37,7 @@ const noteSlice = createSlice({
             state.list.push({
                 id: Math.random().toString(),
                 title: action.payload.title,
+                created: new Date().toLocaleDateString('uk'),
                 category: action.payload.category,
                 content: action.payload.content,
             });
