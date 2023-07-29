@@ -44,6 +44,11 @@ ol[class] {
   list-style: none;
 }
 
+.btn:hover, .btn:focus {
+  color: #ffffff;
+  outline: 0;
+}
+
 .container{
   min-height: 100vh;
   box-sizing: border-box;
