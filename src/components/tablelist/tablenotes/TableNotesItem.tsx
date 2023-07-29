@@ -1,5 +1,5 @@
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
-import { removeNote } from '../../../store/noteSlice';
+import { removeNote, archiveNote } from '../../../store/noteSlice';
 import './TableNotesItem.css'
 
 interface TableNotesItemProps{
@@ -32,7 +32,7 @@ const TableNotesItem: React.FC<TableNotesItemProps> = ({id, title, created, cate
             <td className="icons">
                 <a href="#" className="icon"><i className="fa-solid fa-pen-to-square"></i></a>
 
-                <div className="icon">
+                <div className="icon" onClick={() => dispatch(archiveNote(id))}>
                     <i className="fa-solid fa-folder-plus"></i>
                 </div>
 

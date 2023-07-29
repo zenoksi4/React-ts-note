@@ -10,6 +10,7 @@ type Note = {
 
 type NotesState = {
     list: Note[];
+    listArchive: Note[];
 }
 
 const initialState: NotesState = {
@@ -20,7 +21,8 @@ const initialState: NotesState = {
         category: 'category1',
         content: 'notes1 03.09.2022,02.09.2022'
     },
-],
+    ],
+    listArchive:[]
 }
 
 type addNotesAction = {
@@ -44,10 +46,18 @@ const noteSlice = createSlice({
         },
         removeNote(state, action:PayloadAction<string>) {
             state.list = state.list.filter(note => note.id !== action.payload);
+        },
+        archiveNote(state, action:PayloadAction<string>) {
+            let archiveNote = state.list.find(note => note.id == action.payload)
+            if(archiveNote){
+                state.listArchive.push(archiveNote);
+            }
+            state.list = state.list.filter(note => note.id !== action.payload);
+
         }
     },
 });
 
-export const { addNote , removeNote} = noteSlice.actions;
+export const { addNote , removeNote, archiveNote} = noteSlice.actions;
 
 export default noteSlice.reducer;
