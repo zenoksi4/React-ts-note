@@ -5,38 +5,42 @@ import { ActiveItemIcons, ArchiveItemIcons } from './TableNotesItemIcons';
 
 interface TableNotesItemProps{
     isArchive: boolean,
-    id:string,
-    title: string,
-    created: string,
-    category: string,
-    content: string,
+    note:{
+        id:string,
+        title: string,
+        created: string,
+        category: string,
+        content: string,
+    }
 }
 
-const TableNotesItem: React.FC<TableNotesItemProps> = ({isArchive, id, title, created, category, content}) => {
-    let datesContent = content.match(/\d{2}([.-])\d{2}\1\d{4}/g)?.join(',');
+const TableNotesItem: React.FC<TableNotesItemProps> = ({isArchive, note}) => {
+    let datesContent = note.content.match(/\d{2}([.-])\d{2}\1\d{4}/g)?.join(',');
 
     return(
         <tr>
             <td className="note-title">
-                <div className="icon-title"><i className="fa-solid fa-shop"></i></div>
-                {title}
+                <div className="icon-title">
+                    {note.category === 'category1' && <i className="fa-solid fa-shop"></i>}
+                </div>
+                {note.title}
             </td>
 
-            <td>{created}</td>
+            <td>{note.created}</td>
 
-            <td>{category}</td>
+            <td>{note.category}</td>
 
-            <td className="text-ellipsis">{content}</td>
+            <td className="text-ellipsis">{note.content}</td>
 
             <td>{datesContent}</td>
 
             <td className="icons">
                 
-                {!isArchive && <ActiveItemIcons id = {id}/>}
+                {!isArchive && <ActiveItemIcons note = {note}/>}
 
-                {isArchive && <ArchiveItemIcons id = {id}/>}
+                {isArchive && <ArchiveItemIcons note = {note}/>}
 
-            </td>
+            </td>   
 
         </tr>
     );

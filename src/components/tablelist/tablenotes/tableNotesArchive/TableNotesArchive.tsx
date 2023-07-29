@@ -11,7 +11,7 @@ const TableNotesArchive: React.FC = () => {
         <Table>
             <TableNotes>
                 {notes.map((note) =>(
-                    <TableNotesItem key={note.id} isArchive= {true} {...note} />
+                    <TableNotesItem key={note.id} isArchive= {true} note = {note} />
                 ))}
             </TableNotes>
         </Table>

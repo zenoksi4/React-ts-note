@@ -15,7 +15,7 @@ const TableNotesActive: React.FC = () => {
                     <TableNotesItem
                     key={note.id}
                     isArchive= {false}
-                    {...note}
+                    note = {note}
                     />
                 ))}
             </TableNotes>

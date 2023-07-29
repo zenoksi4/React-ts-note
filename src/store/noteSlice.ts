@@ -62,10 +62,14 @@ const noteSlice = createSlice({
             }
             state.listArchive = state.listArchive.filter(note => note.id !== action.payload);
 
+        },
+        editNote(state, action:PayloadAction<Note>) {
+            let indexEdit = state.list.indexOf(action.payload);
+            state.list.splice(indexEdit, 1, action.payload);
         }
     },
 });
 
-export const { addNote , removeNote, archiveNote, unArchiveNote} = noteSlice.actions;
+export const { addNote , removeNote, archiveNote, unArchiveNote, editNote} = noteSlice.actions;
 
 export default noteSlice.reducer;

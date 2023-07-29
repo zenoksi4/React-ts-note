@@ -36,7 +36,6 @@ td .icon-title {
 
 .note-table tbody tr {
     background-color: #f3f3f37b;
-    backdrop-filter: blur(10px);
     color: rgb(0, 0, 0);
 }
 .note-table tr {
