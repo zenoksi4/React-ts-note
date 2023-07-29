@@ -10,7 +10,7 @@ interface IconsProps{
         created: string,
         category: string,
         content: string,
-    }
+    },
 }
 
 const ActiveItemIcons: React.FC<IconsProps> = ({note}) => {
@@ -41,7 +41,7 @@ const ArchiveItemIcons: React.FC<IconsProps> = ({note}) => {
     return(
 
         <div className="icon" onClick={() => dispatch(unArchiveNote(note.id))}>
-            <i className="fa-solid fa-folder-plus"></i>
+            <i className="fa-solid fa-folder-minus"></i>
         </div>
 
     );

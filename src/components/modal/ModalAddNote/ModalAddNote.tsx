@@ -39,14 +39,14 @@ const ModalAddNote: React.FC<AddNoteModalProps> = ({active, setActive}) => {
         <Modal active={active} setActive={setActive}>
             <ModalFormWrapper>
                 <h1>Add Note</h1>
-                {valid && <span>{valid}</span>}
+                {valid && <span className='invalid-field' >{valid}</span>}
 
                 <form action="" onSubmit={(event) => (handleSubmit(event))}>
                     <label htmlFor="">Title</label><br/>
                     <input type="text" value={title} onChange={(e) => (setTitle(e.target.value))}/><br/>
 
                     <label htmlFor="">Category</label><br/>
-                    <select itemType="radio" value={category} onChange={(e) => (setCategory(e.target.value))}>
+                    <select className='category-input' itemType="radio" value={category} onChange={(e) => (setCategory(e.target.value))}>
                         <option value="Task">Task</option>
                         <option value="Random Thought">Random Thought</option>
                         <option value="Idea">Idea</option>

@@ -49,21 +49,21 @@ const ModalEditNote: React.FC<ModalEditNoteProps> = ({active, setActive, note}) 
         <Modal active={active} setActive={setActive}>
             <ModalFormWrapper>
                 <h1>Edit Note</h1>
-                {valid && <span>{valid}</span>}
+                {valid && <span className='invalid-field' >{valid}</span>}
 
-                <form action="" onSubmit={(event) => (handleSubmit(event))}>
+                <form action="" onSubmit={(event) => (handleSubmit(event), {once: true})}>
                     <label htmlFor="">Title</label><br/>
-                    <input type="text" value={title} onChange={(e) => (setTitle(e.target.value))}/><br/>
+                    <input type="text" value={title} onChange={(e) => (setTitle(e.target.value), {once: true})}/><br/>
 
                     <label htmlFor="">Category</label><br/>
-                    <select itemType="radio" value={category} onChange={(e) => (setCategory(e.target.value))}>
+                    <select className='category-input' itemType="radio" value={category} onChange={(e) => (setCategory(e.target.value), {once: true})}>
                         <option value="Task">Task</option>
                         <option value="Random Thought">Random Thought</option>
                         <option value="Idea">Idea</option>
                     </select><br/>
 
                     <label htmlFor="">Note</label><br/>
-                    <input type="text" value={content} onChange={(e) => (setContent(e.target.value))} /><br/>
+                    <input type="text" value={content} onChange={(e) => (setContent(e.target.value), {once: true})} /><br/>
 
                     <input type="submit" className='submit-btn'/><br/>
 

@@ -18,11 +18,52 @@ const initialState: NotesState = {
         id: Math.random().toString(),
         title: 'note1',
         created: new Date().toLocaleDateString('uk'),
-        category: 'category1',
-        content: 'notes1 03.09.2022,02.09.2022'
+        category: 'Task',
+        content: 'notes1 03/09/2023,02/09/2023'
+    },
+    {              
+        id: Math.random().toString(),
+        title: 'note2',
+        created: new Date().toLocaleDateString('uk'),
+        category: 'Idea',
+        content: 'notes2 03/09/2023'
+    },
+    {              
+        id: Math.random().toString(),
+        title: 'note3',
+        created: new Date().toLocaleDateString('uk'),
+        category: 'Task',
+        content: 'notes3 '
+    },
+    {              
+        id: Math.random().toString(),
+        title: 'note4',
+        created: new Date().toLocaleDateString('uk'),
+        category: 'Random Thought',
+        content: 'notes4 22/04/2023,02/09/2023'
+    },
+    {              
+        id: Math.random().toString(),
+        title: 'note5',
+        created: new Date().toLocaleDateString('uk'),
+        category: 'Idea',
+        content: 'notes5 25/02/2023,02/09/2023'
+    },
+    {              
+        id: Math.random().toString(),
+        title: 'note6',
+        created: new Date().toLocaleDateString('uk'),
+        category: 'Random Thought',
+        content: 'notes6 22/04/2023'
     },
     ],
-    listArchive:[]
+    listArchive:[{              
+        id: Math.random().toString(),
+        title: 'noteArch',
+        created: new Date().toLocaleDateString('uk'),
+        category: 'Task',
+        content: 'notes archive 03/09/2023,02/09/2023'
+    }]
 }
 
 type addNotesAction = {
@@ -64,8 +105,11 @@ const noteSlice = createSlice({
 
         },
         editNote(state, action:PayloadAction<Note>) {
-            let indexEdit = state.list.indexOf(action.payload);
-            state.list.splice(indexEdit, 1, action.payload);
+            let editNote = state.list.find((note => note.id === action.payload.id));
+            if (editNote) {
+                let indexEdit = state.list.indexOf(editNote)
+                state.list.splice(indexEdit, 1, action.payload);
+            }
         }
     },
 });

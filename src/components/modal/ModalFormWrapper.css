@@ -44,3 +44,18 @@
     box-shadow: 0 0 10px 0 #6487df inset, 0 0 10px 4px #6487df;
     color: #ffffffff;
 }
+
+
+.invalid-field{
+    background-color: #c00000;
+    border: 5px solid #c00000;
+    border-radius: 40px;
+    text-align: center;
+
+}
+
+.category-input{
+    border-bottom: 1px solid #ffffff;
+    border-radius: 20px;
+    background-color: #00000000;
+}

@@ -8,9 +8,9 @@ const AddNoteButton: React.FC<AddNoteButtonProps> = ({setActive}) => {
 
     return(
             <div>
-                <a className="add-note__btn" onClick={() => setActive(true)}>
+                <button className="add-note__btn" onClick={() => setActive(true)}>
                     add note
-                </a>
+                </button>
             </div>
     );
 }

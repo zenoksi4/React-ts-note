@@ -1,9 +1,10 @@
 import {useState} from 'react'
-import TableNotesActive from "./components/tableList/tableNotes/tableNotesActive/TableNotesActive";
-import AddNoteButton from "./components/buttons/addNoteButton/AddNoteButton";
 import ModalAddNote from './components/modal/ModalAddNote/ModalAddNote';
 import "./App.css";
-import TableNotesArchive from './components/tableList/tableNotes/tableNotesArchive/TableNotesArchive';
+import TableSummary from './components/tablelist/tableSummary/TableSummary';
+import TableNotesArchive from './components/tablelist/tablenotes/tableNotesArchive/TableNotesArchive';
+import AddNoteButton from './components/buttons/addnotebutton/AddNoteButton';
+import TableNotesActive from './components/tablelist/tablenotes/tableNotesActive/TableNotesActive';
 
 function App() {
   const [modalActive, setModalActive] = useState(false)
@@ -13,6 +14,7 @@ function App() {
       <AddNoteButton setActive={setModalActive}/>
       <ModalAddNote active={modalActive} setActive={setModalActive}/>
       <TableNotesArchive/>
+      <TableSummary/>
     </div>
   );
 }

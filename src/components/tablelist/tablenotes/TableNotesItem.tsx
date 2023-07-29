@@ -1,7 +1,6 @@
-import { useAppDispatch } from '../../../hooks/useAppDispatch';
-import { removeNote, archiveNote } from '../../../store/noteSlice';
-import './TableNotesItem.css'
 import { ActiveItemIcons, ArchiveItemIcons } from './TableNotesItemIcons';
+import './TableNotesItem.css'
+
 
 interface TableNotesItemProps{
     isArchive: boolean,
@@ -15,15 +14,17 @@ interface TableNotesItemProps{
 }
 
 const TableNotesItem: React.FC<TableNotesItemProps> = ({isArchive, note}) => {
-    let datesContent = note.content.match(/\d{2}([.-])\d{2}\1\d{4}/g)?.join(',');
+    let datesContent = note.content?.match(/(\d+)([\/.-])(\d+)([\/.-])(\d+)/g)?.join(',');
 
     return(
         <tr>
             <td className="note-title">
                 <div className="icon-title">
-                    {note.category === 'category1' && <i className="fa-solid fa-shop"></i>}
+                    {note.category === 'Task' && <i className="fa-solid fa-shop"></i>}
+                    {note.category === 'Random Thought' && <i className="fa-regular fa-lightbulb"></i>}
+                    {note.category === 'Idea' && <i className="fa-solid fa-head-side-virus"></i>}
                 </div>
-                {note.title}
+                <span className='text-ellipsis'>{note.title}</span>
             </td>
 
             <td>{note.created}</td>
