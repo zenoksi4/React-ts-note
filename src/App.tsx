@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'
+import ModalAddNote from './components/modal/ModalAddNote/ModalAddNote';
+import "./App.css";
+import TableSummary from './components/tablelist/tableSummary/TableSummary';
+import TableNotesArchive from './components/tablelist/tablenotes/tableNotesArchive/TableNotesArchive';
+import AddNoteButton from './components/buttons/addnotebutton/AddNoteButton';
+import TableNotesActive from './components/tablelist/tablenotes/tableNotesActive/TableNotesActive';
 
 function App() {
+  const [modalActive, setModalActive] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <TableNotesActive/>
+      <AddNoteButton setActive={setModalActive}/>
+      <ModalAddNote active={modalActive} setActive={setModalActive}/>
+      <TableNotesArchive/>
+      <TableSummary/>
     </div>
   );
 }
