@@ -48,24 +48,26 @@ const ModalEditNote: React.FC<ModalEditNoteProps> = ({active, setActive, note}) 
 
         <Modal active={active} setActive={setActive}>
             <ModalFormWrapper>
-                <h1>Edit Note</h1>
-                {valid && <span className='invalid-field' >{valid}</span>}
+                <h1 className='text-center text-4xl font-bold'>Edit Note</h1>
+                {valid && <span className='text-red-600 font-bold border-b-2 border-red-600' >{valid}</span>}
 
                 <form action="" onSubmit={(event) => (handleSubmit(event), {once: true})}>
-                    <label htmlFor="">Title</label><br/>
-                    <input type="text" value={title} onChange={(e) => (setTitle(e.target.value), {once: true})}/><br/>
+                    <label className='py-1' htmlFor="">Title:</label><br/>
+                    <input className='mb-4 w-full bg-transparent border-b' type="text" value={title} onChange={(e) => (setTitle(e.target.value), {once: true})}/><br/>
 
-                    <label htmlFor="">Category</label><br/>
-                    <select className='category-input' itemType="radio" value={category} onChange={(e) => (setCategory(e.target.value), {once: true})}>
+                    <label className='py-1' htmlFor="">Category:</label><br/>
+                    <select className='py-1 my-3 text-black rounded-lg bg-transparent cursor-pointer border-b-2' itemType="radio" value={category} onChange={(e) => (setCategory(e.target.value), {once: true})}>
                         <option value="Task">Task</option>
-                        <option value="Random Thought">Random Thought</option>
+                        <option value="Random Thought">Random Thought:</option>
                         <option value="Idea">Idea</option>
                     </select><br/>
 
-                    <label htmlFor="">Note</label><br/>
-                    <input type="text" value={content} onChange={(e) => (setContent(e.target.value), {once: true})} /><br/>
+                    <label htmlFor="">Note:</label><br/>
+                    <input className='mb-4 w-full bg-transparent border-b' type="text" value={content} onChange={(e) => (setContent(e.target.value), {once: true})} /><br/>
 
-                    <input type="submit" className='submit-btn'/><br/>
+                    <input type="submit" className='p-4 font-bold text-white ring-blue-500 
+                        shadow-[inset_0_0_40px_40px_rgb(71,97,161)]
+                        hover:shadow-[inset_0_0_10px_0_rgb(71,97,161),0_0_10px_4px_rgb(71,97,161)] hover:bg-inherit cursor-pointer transition-shadow w-full'/><br/>
 
                 </form>
             </ModalFormWrapper>

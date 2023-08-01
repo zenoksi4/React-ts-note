@@ -1,5 +1,4 @@
 import { ActiveItemIcons, ArchiveItemIcons } from './TableNotesItemIcons';
-import './TableNotesItem.css'
 
 
 interface TableNotesItemProps{
@@ -17,9 +16,9 @@ const TableNotesItem: React.FC<TableNotesItemProps> = ({isArchive, note}) => {
     let datesContent = note.content?.match(/(\d+)([\/.-])(\d+)([\/.-])(\d+)/g)?.join(',');
 
     return(
-        <tr>
-            <td className="note-title">
-                <div className="icon-title">
+        <tr className='bg-opacity-70 bg-gray-300 '>
+            <td className="flex items-center px-[25px]  py-[12px]">
+                <div className="p-3 bg-white bg-opacity-25 rounded-full m-3 text-slate-50">
                     {note.category === 'Task' && <i className="fa-solid fa-shop"></i>}
                     {note.category === 'Random Thought' && <i className="fa-regular fa-lightbulb"></i>}
                     {note.category === 'Idea' && <i className="fa-solid fa-head-side-virus"></i>}
@@ -27,15 +26,15 @@ const TableNotesItem: React.FC<TableNotesItemProps> = ({isArchive, note}) => {
                 <span className='text-ellipsis'>{note.title}</span>
             </td>
 
-            <td>{note.created}</td>
+            <td className='px-[25px]  py-[12px]'>{note.created}</td>
 
-            <td>{note.category}</td>
+            <td className='px-[25px]  py-[12px]'>{note.category}</td>
 
-            <td className="text-ellipsis">{note.content}</td>
+            <td className="px-[25px]  py-[12px] max-w-[200px] truncate">{note.content}</td>
 
-            <td>{datesContent}</td>
+            <td className='px-[25px]  py-[12px]'>{datesContent}</td>
 
-            <td className="icons">
+            <td className="px-[25px]  py-[12px] flex ">
                 
                 {!isArchive && <ActiveItemIcons note = {note}/>}
 

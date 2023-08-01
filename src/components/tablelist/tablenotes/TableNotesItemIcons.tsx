@@ -19,16 +19,16 @@ const ActiveItemIcons: React.FC<IconsProps> = ({note}) => {
 
     return(
         <>
-        <div className="icon" onClick={() => setModalEditActive(true)}>
-            <i className="fa-solid fa-pen-to-square"></i>
+        <div className="p-3">
+            <i className="fa-solid fa-pen-to-square cursor-pointer" onClick={() => setModalEditActive(true)}></i>
         </div>
 
-        <div className="icon" onClick={() => dispatch(archiveNote(note.id))}>
-            <i className="fa-solid fa-folder-plus"></i>
+        <div className="p-3">
+            <i className="fa-solid fa-folder-plus cursor-pointer" onClick={() => dispatch(archiveNote(note.id))}></i>
         </div>
 
-        <div className="icon" onClick={() => dispatch(removeNote(note.id))}>
-            <i className="fa-solid fa-trash"></i>
+        <div className="p-3">
+            <i className="fa-solid fa-trash cursor-pointer" onClick={() => dispatch(removeNote(note.id))}></i>
         </div>
         {modalEditActive && <ModalEditNote active={modalEditActive} setActive={setModalEditActive} note = {note}/>}
         </>
@@ -40,8 +40,8 @@ const ArchiveItemIcons: React.FC<IconsProps> = ({note}) => {
 
     return(
 
-        <div className="icon" onClick={() => dispatch(unArchiveNote(note.id))}>
-            <i className="fa-solid fa-folder-minus"></i>
+        <div className="icon">
+            <i className="fa-solid fa-folder-minus  cursor-pointer" onClick={() => dispatch(unArchiveNote(note.id))}></i>
         </div>
 
     );

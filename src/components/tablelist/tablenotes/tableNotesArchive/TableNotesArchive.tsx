@@ -9,7 +9,7 @@ const TableNotesArchive: React.FC = () => {
 
     return(
         <>
-            <h1>Archive</h1>
+            <h1 className="font-bold text-4xl py-5">Archive</h1>
             <Table>
                 <TableNotes>
                     {notes.map((note) =>(
