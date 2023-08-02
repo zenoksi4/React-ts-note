@@ -49,6 +49,8 @@
     right: 25%;
     top: 0;
     cursor: pointer;
+    min-width: 20px;
+    min-height: 20px;
 }
 
 .close:hover{
