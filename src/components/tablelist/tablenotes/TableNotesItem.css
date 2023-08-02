@@ -9,7 +9,7 @@ td .icon-title {
     margin: 10px;
     color: #ffffff;
     background-color: #ffffff24;
-    border-radius: 100px;
+    border-radius: 30px;
 }
 
 .text-ellipsis {
@@ -32,6 +32,7 @@ td .icon-title {
     color: #000000;
 }
 .icon:hover {
+    cursor: pointer;
     padding: 10px;
     color: #676666;
 }

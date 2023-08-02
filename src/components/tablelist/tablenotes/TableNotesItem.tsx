@@ -1,6 +1,9 @@
 import { ActiveItemIcons, ArchiveItemIcons } from './TableNotesItemIcons';
 import './TableNotesItem.css'
 import '../../../index.css'
+import { MdOutlineOtherHouses } from "react-icons/md";
+import { BiBrain } from "react-icons/bi";
+import { TbBulb } from "react-icons/tb";
 
 interface TableNotesItemProps{
     isArchive: boolean,
@@ -11,18 +14,19 @@ interface TableNotesItemProps{
         category: string,
         content: string,
     }
+    isSb?:boolean
 }
 
-const TableNotesItem: React.FC<TableNotesItemProps> = ({isArchive, note}) => {
+const TableNotesItem: React.FC<TableNotesItemProps> = ({isArchive, note, isSb}) => {
     let datesContent = note.content?.match(/(\d+)([\/.-])(\d+)([\/.-])(\d+)/g)?.join(',');
 
     return(
         <tr>
             <td className="note-title">
                 <div className="icon-title">
-                    {note.category === 'Task' && <i className="fa-solid fa-shop"></i>}
-                    {note.category === 'Random Thought' && <i className="fa-regular fa-lightbulb"></i>}
-                    {note.category === 'Idea' && <i className="fa-solid fa-head-side-virus"></i>}
+                    {note.category === 'Task' && <MdOutlineOtherHouses size={'50px'}/>}
+                    {note.category === 'Random Thought' && <BiBrain size={'50px'}/>}
+                    {note.category === 'Idea' && <TbBulb size={'50px'}/>}
                 </div>
                 <span className='text-ellipsis'>{note.title}</span>
             </td>
@@ -37,9 +41,9 @@ const TableNotesItem: React.FC<TableNotesItemProps> = ({isArchive, note}) => {
 
             <td className="icons">
                 
-                {/* {!isArchive && <ActiveItemIcons note = {note}/>}
+                {!isArchive && <ActiveItemIcons isSb={isSb} note = {note}/>}
 
-                {isArchive && <ArchiveItemIcons note = {note}/>} */}
+                {isArchive && <ArchiveItemIcons isSb={isSb} note = {note}/>}
 
             </td>   
 
