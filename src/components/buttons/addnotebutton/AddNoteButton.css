@@ -34,3 +34,7 @@
     box-shadow: 0 0 10px 0 #6487df inset, 0 0 10px 4px #6487df;
     color: #ffffffff;
 }
+
+.wrap{
+    margin: 20px;
+}

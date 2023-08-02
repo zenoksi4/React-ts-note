@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="container">
       <TableNotesActive/>
-      <AddNoteButton setActive={setModalActive}/>
+      <AddNoteButton setActive={setModalActive}>Add note</AddNoteButton>
       <ModalAddNote active={modalActive} setActive={setModalActive}/>
       <TableNotesArchive/>
       <TableSummary/>

@@ -1,6 +1,6 @@
 import { ActiveItemIcons, ArchiveItemIcons } from './TableNotesItemIcons';
 import './TableNotesItem.css'
-
+import '../../../index.css'
 
 interface TableNotesItemProps{
     isArchive: boolean,
@@ -37,9 +37,9 @@ const TableNotesItem: React.FC<TableNotesItemProps> = ({isArchive, note}) => {
 
             <td className="icons">
                 
-                {!isArchive && <ActiveItemIcons note = {note}/>}
+                {/* {!isArchive && <ActiveItemIcons note = {note}/>}
 
-                {isArchive && <ArchiveItemIcons note = {note}/>}
+                {isArchive && <ArchiveItemIcons note = {note}/>} */}
 
             </td>   
 
